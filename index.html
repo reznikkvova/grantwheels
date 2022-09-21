@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ua">
+<html lang="uk">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -8,23 +8,25 @@
         <title>Шиномонтаж GRANT WHEELS</title>
         <link rel="stylesheet" href="./style.css">
         <link href="http://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+              integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+              crossorigin=""/>
     </head>
     <body>
         <header class="header">
             <div class="container">
                 <div class="header-body">
-                    <div class="header-logo"></div>
+                    <img class="header-logo" alt="logo" src="./png/logo.png">
                     <nav class="header-nav">
                         <ul class="header-list">
-                            <li class="header-list_item"><a href="" class="header-link">Послуги</a></li>
-                            <li class="header-list_item"><a href="" class="header-link">Розрахувати ціну</a></li>
-                            <li class="header-list_item"><a href="" class="header-link">Контакти</a></li>
-                            <li class="header-list_item"><a href="" class="header-link">Про нас</a></li>
+                            <li class="header-list_item"><a href="#service" class="header-link">Послуги</a></li>
+                            <li class="header-list_item"><a href="#price" class="header-link">Розрахувати ціну</a></li>
+                            <li class="header-list_item"><a href="#contacts" class="header-link">Контакти та локація</a></li>
                         </ul>
                     </nav>
-                    <div class="header-button js-btn-feedback">
-                        Записатись онлайн
-                    </div>
+                    <a href="tel:+380662163639" class="header-button">
+                        Зателефонувати
+                    </a>
                 </div>
             </div>
         </header>
@@ -53,7 +55,7 @@
                 </div>
             </div>
         </section>
-        <section class="section-service">
+        <section class="section-service" id="service">
             <div class="container">
                 <div class="section-service-body">
                     <div class="section-service-text">
@@ -86,7 +88,7 @@
                         </p>
                         <input type="text" class="section-service-form_input" placeholder="Ваше ім’я" id="user_name">
                         <input type="number" class="section-service-form_input" placeholder="Номер телефону" id="user_phone">
-                        <input type="datetime-local" class="section-service-form_input" placeholder="Оберіть дату та час" id="date">
+                        <input type="datetime-local" class="section-service-form_input"  id="date">
                         <button class="section-service-form_submit">Записатись онлайн</button>
                     </form>
                 </div>
@@ -121,7 +123,7 @@
                 </div>
             </div>
         </section>
-        <section class="section-price">
+        <section class="section-price" id="price">
             <div class="container">
                 <div class="section-price-body">
                     <h2 class="section-price-title">Бажаєте дізнатись точну <span>ціну?</span> <br>
@@ -134,7 +136,7 @@
                                     <p>Оберіть діаметр та
                                         тип ваших колес:</p>
                                     <div class="dropdown-item js-size option-margin">
-                                        <p class="js-dropdown-trigger">Діаметр колеса</p>
+                                        <p class="js-dropdown-trigger js-diametr" data-selected="-">Діаметр колеса</p>
                                         <span></span>
                                         <ul class="dropdown-selection">
                                             <li class="dropdown-selection_item">13</li>
@@ -151,7 +153,7 @@
                                     </div>
 
                                     <div class="dropdown-item js-tire">
-                                        <p class="js-dropdown-trigger">Тип диску</p>
+                                        <p class="js-dropdown-trigger js-disk" data-selected="-">Тип диску</p>
                                         <span></span>
                                         <ul class="dropdown-selection no-overflow">
                                             <li class="dropdown-selection_item">Литий диск</li>
@@ -165,14 +167,36 @@
                                 <div class="section-price-option-calc_item-options">
                                     <p>Оберіть тип вашого автомобілю:</p>
                                     <div class="dropdown-item js-type">
-                                        <p class="js-dropdown-trigger">Тип автомобіля</p>
+                                        <p class="js-dropdown-trigger js-typeCar" data-selected="-" >Тип автомобіля</p>
                                         <span></span>
                                         <ul class="dropdown-selection no-overflow">
                                             <li class="dropdown-selection_item">Легковий</li>
                                             <li class="dropdown-selection_item">SUV</li>
-                                            <li class="dropdown-selection_item">Автобус</li>
                                         </ul>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calc-results">
+                            <div class="calc-result-row">
+                                <div class="calc-result-item">
+                                    <p class="calc-result-title">Заміна шин</p>
+                                    <p class="calc-result-description js-zamina-result">Оберіть параметри для розрахунку</p>
+                                </div>
+                                <div class="calc-result-item">
+                                    <p class="calc-result-title">Балансування</p>
+                                    <p class="calc-result-description js-balans-result">Оберіть параметри для розрахунку</p>
+                                </div>
+                            </div>
+                            <div class="calc-result-row">
+                                <div class="calc-result-item">
+                                    <p class="calc-result-title">Зберігання шин</p>
+                                    <p class="calc-result-description js-save-result">Оберіть параметри для розрахунку</p>
+                                </div>
+                                <div class="calc-result-item">
+                                    <p class="calc-result-title">Ремонт шин</p>
+                                    <p class="calc-result-description js-remont-result">Від <span>100</span> гривень
+                                        за 1 колесо</p>
                                 </div>
                             </div>
                         </div>
@@ -180,9 +204,118 @@
                 </div>
             </div>
         </section>
-
-        <div class="test"></div>
+        <section class="contacts-section" id="contacts">
+            <div class="container">
+                <div class="contacts-section-body">
+                        <h2 class="contacts-section-title">Як і де нас знайти?</h2>
+                        <div class="contacts-section-wrapper">
+                            <div class="contacts-map-wrapper" id="OSMLeaflet"></div>
+                            <div class="contacts-section-info">
+                                <div class="contacts-section-item">
+                                    <p class="contacts-section-item_title">Про нас</p>
+                                    <p class="contacts-section-item_description">GRANT WHEELS - новий підхід до надання шиномонтажних послуг. Ми працюємо в рамках державної програми єРобота.
+                                        Державні органи затвердили нашу ідея та модель бізнесу та проінвестувала кошти в Наш розвиток. Ми, в свою чергу, забов'язались сплачувати податки, вести білу бухгалтерію
+                                        та задовільняти клієнтів, пропонуючи їм якісний сервіс, в зручному місці, за доступною ціною. Користуючись нашими послугами - Ви спонсуєте державу, оскільки ми платимо податки
+                                        з кожного нашого клієнту. В нас серйозні плани на майбутнє, мастабування, покращення умов, відкриття нових точок. То ж, допоможіть нам розвитатись та користуйтесь офіційними послугами.
+                                    </p>
+                                </div>
+                                <div class="contacts-section-item">
+                                    <p class="contacts-section-item_title">Контакти та адреса</p>
+                                    <a href="tel:+380662163639" class="contacts-section-item_description with-svg-asset">
+                                        <svg width="18px" height="18px" viewBox="0 0 414.937 414.937">
+                                            <g>
+                                                <path style="fill: #fff" d="M159.138,256.452c37.217,36.944,80.295,72.236,97.207,55.195c24.215-24.392,39.12-45.614,92.854-2.761
+                                                    c53.734,42.874,12.696,71.727-10.757,95.363c-27.064,27.269-128.432,1.911-228.909-97.804C9.062,206.71-17.07,105.54,10.014,78.258
+                                                    c23.46-23.637,52.006-64.879,95.254-11.458c43.269,53.394,22.161,68.462-2.054,92.861
+                                                    C86.31,176.695,121.915,219.501,159.138,256.452z M213.104,80.203c0,0-11.227-1.754-19.088,6.113
+                                                    c-8.092,8.092-8.445,22.032,0.082,30.552c5.039,5.039,12.145,6.113,12.145,6.113c13.852,2.598,34.728,6.997,56.944,29.206
+                                                    c22.209,22.208,26.608,43.084,29.206,56.943c0,0,1.074,7.106,6.113,12.145c8.521,8.521,22.46,8.174,30.552,0.082
+                                                    c7.861-7.86,6.113-19.087,6.113-19.087c-4.399-28.057-17.999-57.365-41.351-80.716C270.462,98.203,241.153,84.609,213.104,80.203z
+                                                     M318.415,96.958c40.719,40.719,58.079,86.932,52.428,124.379c0,0-1.972,11.859,5.773,19.604
+                                                    c8.718,8.718,22.535,8.215,30.695,0.062c5.243-5.243,6.385-13.777,6.385-13.777c4.672-32.361-1.203-97.464-64.647-160.901
+                                                    C285.605,2.887,220.509-2.988,188.147,1.677c0,0-8.527,1.136-13.777,6.385c-8.16,8.16-8.656,21.978,0.061,30.695
+                                                    c7.746,7.746,19.604,5.773,19.604,5.773C231.484,38.879,277.696,56.24,318.415,96.958z"/>
+                                            </g>
+                                        </svg>
+                                        +38 (066) 216 36 39</a>
+                                    <p class="contacts-section-item_description with-svg-asset">
+                                        <svg style="width: 18px" viewBox="0 0 105.67 116.43">
+                                            <defs>
+                                                <style>
+                                                    .cls-1{fill:#fff;}
+                                                    .cls-1, .cls-2{fill-rule:evenodd;}
+                                                    .cls-2{fill:#fff;}
+                                                </style>
+                                            </defs>
+                                            <path class="cls-1" d="M84.32,80.09c13,3.68,21.35,9.56,21.35,16.19,0,11.13-23.65,20.15-52.83,20.15S0,107.41,0,96.28c0-6.79,8.79-12.79,22.27-16.44l1.48,2c1,1.37,2.13,2.73,3.26,4.06-9.43,2.28-15.47,5.8-15.47,9.75,0,6.88,18.29,12.46,40.86,12.46s40.86-5.58,40.86-12.46c0-3.67-5.24-7-13.56-9.26,1.64-2,3.18-4.14,4.62-6.3Z"/><path class="cls-2" d="M70.19,82.78A69.18,69.18,0,0,1,55.08,95.29a2.14,2.14,0,0,1-2.43.07,85,85,0,0,1-21-18.76C24,67,19.13,56.34,17.48,46.07s-.11-20.42,5.07-28.56a35,35,0,0,1,7.83-8.68C37.68,3,46-.06,54.34,0A34.89,34.89,0,0,1,83.15,16.68c5.57,9.17,6.77,20.87,4.33,32.72A71.93,71.93,0,0,1,70.19,82.75v0ZM52.76,18.51A17.88,17.88,0,1,1,34.88,36.38,17.87,17.87,0,0,1,52.76,18.51Z"/>
+                                        </svg>
+                                        вул. Буковинська, 85</p>
+                                    <a href="mailto:grantwheels@gmail.com" class="contacts-section-item_description with-svg-asset">
+                                        <svg viewBox="0 0 330.001 330.001" style="width: 18px;height: 18px">
+                                            <g>
+                                                <path style="fill: #fff" d="M173.871,177.097c-2.641,1.936-5.756,2.903-8.87,2.903c-3.116,0-6.23-0.967-8.871-2.903L30,84.602
+                                                    L0.001,62.603L0,275.001c0.001,8.284,6.716,15,15,15L315.001,290c8.285,0,15-6.716,15-14.999V62.602l-30.001,22L173.871,177.097z"
+                                                />
+                                                <polygon  style="fill: #fff" points="165.001,146.4 310.087,40.001 19.911,40 "/>
+                                            </g>
+                                        </svg>
+                                        grantwheels@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-body">
+                    <h3 class="footer-title">
+                        <span>GRANT WHEELS</span> - новий підхід до надання послуг
+                    </h3>
+                    <div class="footer-contacts">
+                        <a href="tel:+380662163639" class="footer-contact">
+                            +38 (066) 216 36 39
+                        </a>
+                        <a href="mailto:grantwheels@gmail.com" class="footer-contact">
+                            grantwheels@gmail.com
+                        </a>
+                    </div>
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/grant.wheels/?igshid=NTlmMWMyMzg%3D" target="_blank" class="footer-socials-item">
+                            <svg fill="#fff"  viewBox="0 0 30 30" width="30px" height="30px">
+                                <path d="M 9.9980469 3 C 6.1390469 3 3 6.1419531 3 10.001953 L 3 20.001953 C 3 23.860953 6.1419531 27 10.001953 27 L 20.001953 27 C 23.860953 27 27 23.858047 27 19.998047 L 27 9.9980469 C 27 6.1390469 23.858047 3 19.998047 3 L 9.9980469 3 z M 22 7 C 22.552 7 23 7.448 23 8 C 23 8.552 22.552 9 22 9 C 21.448 9 21 8.552 21 8 C 21 7.448 21.448 7 22 7 z M 15 9 C 18.309 9 21 11.691 21 15 C 21 18.309 18.309 21 15 21 C 11.691 21 9 18.309 9 15 C 9 11.691 11.691 9 15 9 z M 15 11 A 4 4 0 0 0 11 15 A 4 4 0 0 0 15 19 A 4 4 0 0 0 19 15 A 4 4 0 0 0 15 11 z"/>
+                            </svg>
+                        </a>
+                        <a href="" target="_blank" class="footer-socials-item">
+                            <svg fill="#fff" viewBox="0 0 30 30" width="30px" height="30px">
+                                <path d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5 c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697 C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
         <script src="script.js"></script>
+        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+                integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+                crossorigin=""></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+
+
+                function initMap() {
+                    let map = L.map('OSMLeaflet', {
+                        center: [48.287504, 25.953627],
+                        zoom: 15,
+                        scrollWheelZoom: true
+                    });
+                    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+                    L.marker([48.287504, 25.953627]).addTo(map);
+                }
+                initMap();
+            })
+        </script>
     </body>
 </html>
