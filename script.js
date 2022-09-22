@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', function() {
-    const height = document.querySelector('.section-main').offsetHeight + 15;
-    const fullHeight = height + (document.querySelector('.section-service').offsetHeight/2) + document.querySelector('.header').offsetHeight;
+    const height = document.querySelector('.section-main').offsetHeight;
+    const fullHeight = height + document.querySelector('.section-service').offsetHeight - document.querySelector('.section-service-form').offsetHeight + document.querySelector('.header').offsetHeight;
     const form = document.querySelector('.section-service-form');
     document.addEventListener('scroll', function (e) {
         if(window.pageYOffset > height && window.pageYOffset < fullHeight) {
@@ -49,6 +49,21 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     });*/
 
+    const burger = document.querySelector('.header-burger');
+    const nav = document.querySelector('.header-nav');
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    if(window.innerWidth < 992) {
+        document.querySelectorAll('.header-link').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+    }
 
     const shampoviyDiskMatrix = [
         [13,30,40,35,45,380,500],
@@ -74,6 +89,7 @@ window.addEventListener('DOMContentLoaded', function() {
         [21,70,70,95,105,940,1000],
         [22,70,75,100,115,980,1100]
     ];
+
 
 
     function CalcResult() {
