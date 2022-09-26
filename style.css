@@ -1151,7 +1151,19 @@ footer.footer {
     }
 }
 
+.select-params {
+    color: #FF3600;
+    margin: 0;
+    font-style: normal;
+}
+
 @media(max-width: 425px) {
+    .calc-result-row:last-child .calc-result-item:last-child {
+        display: none;
+    }
+    .calc-result-row:last-child .calc-result-item:first-child::before {
+        display: none;
+    }
     .section-main-body {
         width: 100%;
         position: relative;
@@ -1220,6 +1232,7 @@ footer.footer {
 
     .section-service-form_input {
         width: 80%;
+        min-width: 90%;
     }
     .section-service-form_submit {
         width: calc(80% + 20px);
