@@ -102,9 +102,9 @@
                         <p class="section-service-form_title">
                             <span>Запишіться</span> за 1 хвилину
                         </p>
-                        <input type="text" class="section-service-form_input" placeholder="Ваше ім’я" id="user_name">
-                        <input type="number" class="section-service-form_input" placeholder="Номер телефону" id="user_phone">
-                        <input type="datetime-local" class="section-service-form_input"  id="date">
+                        <input type="text" class="section-service-form_input" placeholder="Ваше ім’я" id="user_name" name="Name">
+                        <input type="number" class="section-service-form_input" placeholder="Номер телефону" id="user_phone" name="Phone">
+                        <input type="datetime-local" class="section-service-form_input"  id="date" name="Date">
                         <button class="section-service-form_submit">Записатись онлайн</button>
                     </form>
                 </div>
@@ -311,6 +311,17 @@
                 </div>
             </div>
         </footer>
+
+        <div class="modal-success">
+            <div class="modal-success-content">
+                <p class="modal-success-text">
+                    <span>Дякуємо</span> за запис! Наш менеджер згодом звяжеться з Вами.
+                </p>
+                <div class="modal-success-close">
+                    Закрити
+                </div>
+            </div>
+        </div>
 
         <script src="script.js"></script>
         <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"

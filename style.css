@@ -95,7 +95,7 @@ header.header {
 .section-main {
     margin-top: 80px;
     height: 600px;
-    background: url(./png/ready.png) 100% 100%;
+    background: url(./png/ready.jpg) 100% 100%;
     background-size: cover;
 }
 .section-main-body {
@@ -747,6 +747,67 @@ footer.footer {
     height: 30px;
 }
 
+.modal-success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #000000db;
+    z-index: 5;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.modal-success.active {
+    display: flex;
+}
+.modal-success-content {
+    width: 500px;
+    height: 400px;
+    background: black;
+    filter: drop-shadow(5px 5px 20px rgba(255, 54, 0, 0.3));
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+}
+
+.modal-success-text {
+    font-family: 'Montserrat',sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 40px;
+    color: #FFFFFF;
+    max-width: 60%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.modal-success-text span {
+    color: #FF3600;
+}
+
+.modal-success-close {
+    height: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    color: #FFFFFF;
+    background: #FF3600;
+    border-radius: 3px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: ease 0.2s;
+    text-decoration: none;
+}
+
 @media(max-width: 1200px) {
     .container {
         max-width: 100%;
@@ -859,6 +920,13 @@ footer.footer {
 @media(max-width: 991px) {
     .contacts-section-wrapper {
         flex-direction: column-reverse;
+    }
+    .modal-success-content {
+        width: 80%;
+        height: fit-content;
+    }
+    .modal-success-text {
+        font-size: 22px;
     }
     .contacts-section-info {
         width: 100%;
@@ -1161,6 +1229,19 @@ footer.footer {
     .calc-result-row:last-child .calc-result-item:last-child {
         display: none;
     }
+    .modal-success-content {
+        width: 85%;
+        height: fit-content;
+        padding: 20px 10px;
+    }
+    .modal-success-text {
+        font-size: 18px;
+    }
+    .modal-success-close {
+        height: 35px;
+        line-height: 35px;
+        font-size: 18px ;
+    }
     .calc-result-row:last-child .calc-result-item:first-child::before {
         display: none;
     }
@@ -1232,7 +1313,7 @@ footer.footer {
 
     .section-service-form_input {
         width: 80%;
-        min-width: 90%;
+        min-width: 80%;
     }
     .section-service-form_submit {
         width: calc(80% + 20px);

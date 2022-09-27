@@ -1,4 +1,15 @@
 window.addEventListener('DOMContentLoaded', function() {
+
+
+    var now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+
+
+    now.setMilliseconds(null)
+    now.setSeconds(null)
+
+    document.getElementById('date').value = now.toISOString().slice(0, -1);
+
     const height = document.querySelector('.section-main').offsetHeight;
     const fullHeight = height + document.querySelector('.section-service').offsetHeight - document.querySelector('.section-service-form').offsetHeight + document.querySelector('.header').offsetHeight;
     const form = document.querySelector('.section-service-form');
@@ -39,15 +50,6 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    /*document.addEventListener('click', event => {
-        const isClickInside = document.querySelector('.dropdown-item').contains(event.target)
-
-        if (!isClickInside) {
-            document.querySelectorAll('.dropdown-item').forEach(item => {
-               item.classList.remove('active');
-            });
-        }
-    });*/
 
     const burger = document.querySelector('.header-burger');
     const nav = document.querySelector('.header-nav');
@@ -133,4 +135,47 @@ window.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+
+    document.querySelector('.section-service-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const name = document.querySelector('#user_name').value !== '' ? document.querySelector('#user_name').value : 'Не вказано',
+            phone = document.querySelector('#user_phone').value !== '' ? document.querySelector('#user_phone').value : 'Не вказано',
+        date = document.querySelector('#date').value !== '' ? document.querySelector('#date').value : 'Не вказано';
+
+        const data = {
+            Name: name,
+            Phone: phone,
+            Date: date,
+        };
+
+        fetch("https://sheet.best/api/sheets/a555daf6-69b2-44b3-8241-017e4733103b", {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((r) => r.json())
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+        const success = document.querySelector('.modal-success'), successBtn = document.querySelector('.modal-success-close');
+        success.classList.add('active');
+        successBtn.addEventListener('click', () => {
+            success.classList.remove('active');
+        });
+
+        document.addEventListener('click', event => {
+            const isClickInside = document.querySelector('.modal-success-content').contains(event.target)
+            if (!isClickInside) {
+                success.classList.remove('active');
+            }
+        });
+    });
 });
