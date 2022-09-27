@@ -316,6 +316,7 @@ header.header {
     height: 35px;
     border-radius: 3px;
     border: 1px solid transparent;
+    text-align: left;
 }
 .section-service-form_input:focus {
     outline: none;

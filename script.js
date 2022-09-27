@@ -1,14 +1,13 @@
 window.addEventListener('DOMContentLoaded', function() {
 
-
-    var now = new Date();
-    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-
-
-    now.setMilliseconds(null)
-    now.setSeconds(null)
-
-    document.getElementById('date').value = now.toISOString().slice(0, -1);
+    function setCurrentDate() {
+        let now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        now.setMilliseconds(null)
+        now.setSeconds(null)
+        document.getElementById('date').value = now.toISOString().slice(0, -1);
+    }
+    setCurrentDate();
 
     const height = document.querySelector('.section-main').offsetHeight;
     const fullHeight = height + document.querySelector('.section-service').offsetHeight - document.querySelector('.section-service-form').offsetHeight + document.querySelector('.header').offsetHeight;
@@ -169,13 +168,21 @@ window.addEventListener('DOMContentLoaded', function() {
         success.classList.add('active');
         successBtn.addEventListener('click', () => {
             success.classList.remove('active');
+            resetForm();
         });
 
         document.addEventListener('click', event => {
             const isClickInside = document.querySelector('.modal-success-content').contains(event.target)
             if (!isClickInside) {
                 success.classList.remove('active');
+                resetForm();
             }
         });
+
+        function resetForm() {
+            document.querySelector('#user_name').value = '';
+            document.querySelector('#user_phone').value = '';
+            setCurrentDate();
+        }
     });
 });
