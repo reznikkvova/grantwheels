@@ -2,21 +2,44 @@
 <html lang="uk">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="content-type" content="text/html" />
+
+        <meta name="author" content="Grant Wheels" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!--  <base href="https://grantwheels.cv/">-->
+
+        <link rel="shortcut icon" href="./favicons/favicon.ico" type="image/ico" />
+        <link rel="apple-touch-icon" sizes="16x16" href="./favicons/favicon.png" />
+        <link rel="apple-touch-icon" sizes="32x32" href="./favicons/favicon-32x32.png" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Шиномонтаж GRANT WHEELS</title>
-        <link rel="stylesheet" href="./style.css">
+        <title>Шиномонтажажний центр у Чернівцях - GRANT WHEELS</title>
+        <meta name='title' content='Шиномонтажажний центр у Чернівцях - GRANT WHEELS' />
+        <meta name='description' content='Шиномонтажний центр Grant Wheels у Чернівцях пропонує сучасні та швидкі рішення. Наші спеціалісті надають послуги балансування, заміни шин, ремонту шин. Grant Wheels - гарант стабільності на дорозі.'/>
+        <meta name='keywords' content='сезонна заміна шин балансування шиномонтаж шиномонтажний центр бортування ремонт шин збергінання шин сезонне зберігання шин підкачка колес монтаж демонтаж'/>
+        <meta name="robots" content="index,follow" />
+
+        <meta property='og:locale' content='uk_UA' />
+        <meta property='og:type' content='article' />
+        <meta property='og:site_name' content='Grant Wheels' />
+        <meta property='og:title' content='Шиномонтаж центр у Чернівцях' />
+        <meta property='og:description' content='Шиномонтажний центр Grant Wheels у Чернівцях пропонує сучасні та швидкі рішення. Наші спеціалісті надають послуги балансування, заміни шин, ремонту шин. Grant Wheels - гарант стабільності на дорозі.' />
+        <meta property='og:url' content='https://grantwheels.cv/' />
+
+        <meta property='og:image' content='https://grantwheels.cv/images/logo.png' />
+
+        <link rel="stylesheet" href="./css/style.css">
         <link href="http://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
               integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
               crossorigin=""/>
     </head>
     <body>
+
         <header class="header">
             <div class="container">
                 <div class="header-body">
-                    <img class="header-logo" alt="logo" src="./png/logo.png">
+                    <img class="header-logo" alt="logo" src="./images/logo.png" title="logo">
                     <nav class="header-nav">
                         <ul class="header-list">
                             <li class="header-list_item"><a href="#service" class="header-link">Послуги</a></li>
@@ -53,19 +76,19 @@
                     <span class="section-main-description">Чому вам варто нас обрати ?</span>
                     <ul class="section-main-list">
                         <li class="section-main_item">
-                            <img src="./svg/1.svg" alt="image-1"> Офіційний сервіс
+                            <img src="./images/1.svg" alt="image-1" title="svg-first"> Офіційний сервіс
                         </li>
                         <li class="section-main_item">
-                            <img src="./svg/2.svg" alt="image-2"> Гарантія на усі послуги
+                            <img src="./images/2.svg" alt="image-2" title="svg-second"> Гарантія на усі послуги
                         </li>
                         <li class="section-main_item">
-                            <img src="./svg/3.svg" alt="image-3"> Кваліфіковані майстри
+                            <img src="./images/3.svg" alt="image-3" title="svg-third"> Кваліфіковані майстри
                         </li>
                         <li class="section-main_item">
-                            <img src="./svg/4.svg" alt="image-4"> Прозорість цін на послуги
+                            <img src="./images/4.svg" alt="image-4" title="svg-fourth"> Прозорість цін на послуги
                         </li>
                         <li class="section-main_item">
-                            <img src="./svg/5.svg" alt="image-5"> Професійне обладнання
+                            <img src="./images/5.svg" alt="image-5" title="svg-fifth"> Професійне обладнання
                         </li>
                     </ul>
                 </div>
@@ -147,7 +170,7 @@
                     <div class="section-price-options">
                         <div class="section-price-option-calc">
                             <div class="section-price-option-calc_item">
-                                <img src="./png/tire.png" alt="tire_png">
+                                <img src="./images/tire.png" alt="tire_png" title="tire_image">
                                 <div class="section-price-option-calc_item-options">
                                     <p>Оберіть діаметр та
                                         тип ваших колес:</p>
@@ -179,7 +202,7 @@
                                 </div>
                             </div>
                             <div class="section-price-option-calc_item">
-                                <img src="./png/car.png" alt="car_png">
+                                <img src="./images/car.png" alt="car_png" title="car_image">
                                 <div class="section-price-option-calc_item-options">
                                     <p>Оберіть тип вашого автомобілю:</p>
                                     <div class="dropdown-item js-type">
@@ -323,7 +346,7 @@
             </div>
         </div>
 
-        <script src="script.js"></script>
+        <script src="./js/script.js"></script>
         <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
                 integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
                 crossorigin=""></script>

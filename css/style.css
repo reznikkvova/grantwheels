@@ -95,7 +95,7 @@ header.header {
 .section-main {
     margin-top: 80px;
     height: 600px;
-    background: url(./png/ready.jpg) 100% 100%;
+    background: url(../images/ready.jpg) 100% 100%;
     background-size: cover;
 }
 .section-main-body {
