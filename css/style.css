@@ -1333,3 +1333,16 @@ footer.footer {
         display: block;
     }
 }
+
+.path-phone path, .path-phone polygon{
+    fill: #fff;
+}
+
+.width-18 {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.cls-1{fill:#fff;}
+.cls-1, .cls-2{fill-rule:evenodd;}
+.cls-2{fill:#fff;}
